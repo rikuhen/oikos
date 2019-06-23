@@ -61,8 +61,55 @@
                 <div class="col-12">
                     <h1 class="title-page gray-text">Contáctanos</h1>
                 </div>
-                <div class="col-md-6 col-12 px-0">
-                    Formulario
+                <div class="col-md-6 col-12 mx-0 p-5 form-contact-container">
+                    <p>Si desea comunarse con nosotros, complete el siguiente formulario y gustosamente atenderemos su solicitud.</p>
+                    <form action="">
+                        <div class="form-group row">
+                            <label for="name" class="col-sm-2 col-form-label">Nombre:</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control rounded-0" id="name" name="name">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="address" class="col-sm-2 col-form-label">Dirección:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control rounded-0" id="address" name="address">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="phone" class="col-sm-2 col-form-label">Teléfono:</label>
+                            <div class="col-sm-10">
+                                <input type="phone" class="form-control rounded-0" id="phone" name="phone">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="city" class="col-sm-2 col-form-label">Ciudad:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control rounded-0" id="city" name="city">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="city" class="col-sm-2 col-form-label">Email:</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control rounded-0" id="email" name="email">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="city" class="col-sm-2 col-form-label">Mensaje:</label>
+                            <div class="col-sm-10">
+                                <textarea name="message" class="form-control rounded-0" id="message" cols="20" rows="5"></textarea>
+                            </div>
+                        </div>
+                        <div class="justify-content-end form-group  row">    
+                            <button type="submit" class="btn btn-default btn-enviar back-gray">Enviar</button>
+                        </div>
+
+                        <div id="message-alert" class="justify-content-end form-group row d-none">    
+                            <div class="alert alert-success" role="alert">
+                                Gracias por Contactarse con nosotros, en un momento nos comunicaremos con usted!
+                            </div>
+                        </div>
+                    </form>
                 </div>
                 <div class="col-md-6 col-12 px-0">
                     <img src="images/contacto.png" class="img-fluid" alt="">
@@ -74,7 +121,8 @@
                     <h5 class="gray-text">Encuéntranos en Google Maps</h5>
                 </div>
                 <div class="col-12">
-                    <img src="images/contacto.jpg" class="img-fluid" alt="">
+                    <!-- <img src="images/contacto.jpg" class="img-fluid" alt=""> -->
+                    <iframe class="embed-responsive" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d996.7565310883076!2d-79.90618237414269!3d-2.14367701131269!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sec!4v1561205072186!5m2!1ses-419!2sec"  height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
@@ -95,8 +143,8 @@
                 <div class="col-md-6 col-12">
                     <p class="yellow-text text-center"><strong> Visita nuestras redes</strong></p>
                     <ul class="list-unstyled list-inline text-center socials">
-                        <li class="list-inline-item"><a href="# "><i class="fa fa-2x fa-facebook"> </i> </a> </li>
-                        <li class="list-inline-item"><a href="#"><i class="fa fa-2x fa-instagram"> </i> </a> </li>
+                        <li class="list-inline-item"><a href="https://www.facebook.com/JardinEscuelaOIKOS/"><i class="fa fa-2x fa-facebook"> </i> </a> </li>
+                        <li class="list-inline-item"><a href="https://www.instagram.com/jardinescuelaoikos/"><i class="fa fa-2x fa-instagram"> </i> </a> </li>
                     </ul>
                 </div>
             </div>
@@ -104,6 +152,19 @@
     </footer>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $('button[type="submit"]').on('click',function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            debugger;
+            var formData = $('form').serialize();
+            var posting = $.post("sendmail.php",formData);
+            posting.done(function(result) {
+                console.log(result);
+            })
+            $('#message-alert').removeAttr('d-none')
+        })
+    </script>
 </body>
 
 </html>
