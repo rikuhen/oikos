@@ -1,4 +1,9 @@
 <?php
+
+//required plugins
+include_once 'lib/jl_require_plugins.php';
+
+
 if(!function_exists('oikos_theme_setup')) {
 
     function oikos_theme_setup() {
@@ -84,6 +89,14 @@ if(! function_exists('oikos_scripts') ) {
 if (! function_exists('oikos_widgets_init')) {
 
     function oikos_widgets_init() {
+        register_sidebar( array(
+            'name'          => __( 'Header Slider', 'oikos' ),
+            'id'            => 'header-slider',
+            'before_widget' => '<div>',
+		    'after_widget'  => '</div>',
+            'description'   => __( 'Agrega widget para el header.', 'oikos' )
+        ) );
+        
         register_sidebar( array(
             'name'          => __( 'Page Footer Sidebar 1', 'oikos' ),
             'id'            => 'sidebar-footer-1',
