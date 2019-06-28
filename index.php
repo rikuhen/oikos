@@ -7,14 +7,38 @@
 
     <div class="container separator my-5">
         <!-- separator -->
-        <?php if(! is_front_page( )): ?>
+
+        <!-- FOR A PAGE -->
+        <?php if(is_front_page( ) || is_page()): ?>
             <!-- titulo -->
             <div class="row mb-5">
-                <div class="col-12">
-                    <h1 class="title-page gray-text"><?php the_title( ) ?></h1>
+                    <?php if(! is_front_page( )): ?>
+                        <div class="col-12">
+                            <h1 class="title-page gray-text"><?php the_title( ) ?></h1>
+                        </div>
+                    <?php endif; ?>
+                    <!-- contenido -->
+                    <?php while (have_posts()) : the_post(); ?>
+                        <?php the_content(); 
+                        endwhile; 
+                    ?> 
                 </div>
- 
-        <?php endif; ?> 
-    </div>
+
+        <?php elseif(have_posts()): ?> 
+            <div class="row">
+                <?php while (have_posts()) : the_post(); ?>
+                <article class="col-xs-12 col-md-4 col-sm-6">
+                    <h1><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h1>
+                </article>
+                <?php endwhile; ?>
+            </div>
+        <?php else: ?>
+            <div class="row mt-5">
+                <div class="col-12">
+                    <h1 class="title-page text-secondary text-center"> No existen Publicaciones!</h1>
+                </div>
+            </div>
+        <?php endif; ?>
+    
 </main>
 <?php get_footer( ); ?>

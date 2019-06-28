@@ -2,6 +2,7 @@
 
 //required plugins
 include_once 'lib/jl_require_plugins.php';
+include_once 'lib/jl_widgets.php';
 
 
 if(!function_exists('oikos_theme_setup')) {
@@ -95,6 +96,15 @@ if (! function_exists('oikos_widgets_init')) {
             'before_widget' => '<div>',
 		    'after_widget'  => '</div>',
             'description'   => __( 'Agrega widget para el header.', 'oikos' )
+        ) );
+        
+        
+        register_sidebar( array(
+            'name'          => __( 'Home Content', 'oikos' ),
+            'id'            => 'home-content',
+            'before_widget' => '<div>',
+		    'after_widget'  => '</div>',
+            'description'   => __( 'Agrega widget para el home.', 'oikos' )
         ) );
         
         register_sidebar( array(
