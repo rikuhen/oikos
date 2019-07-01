@@ -11,21 +11,29 @@ class jl_service_block_widget extends WP_Widget
     }
     function widget($args, $instance)
     {
-        echo $args['before_widget'];
-
-	 	if ( ! empty( $instance['title'] ) ) {
-			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
-		}
-
-		echo  date_i18n("d ") . __(' de ', 'oikos') . ucfirst(date_i18n('F ')) . __('del ','oikos') . date_i18n('Y');
-		echo $args['after_widget'];
+    ?>
+        <div class="col-lg-3 col-sm-6 col-12 latest-post mb-4 mb-lg-0">
+            <h3 class="header-latest-post mb-2 mx-4 p-2"><?php echo strtoupper($instance['title']); ?></h3>
+            <p><?php echo $instance['content']; ?></p>    
+            <div class="post-thumb-container position-relative d-flex justify-content-sm-center">
+                <a class="view-more" href="<?php echo $instance['link'] ?>"><img src="<?php echo $instance['image_uri'] ?>" class="img-fluid "> <span>Ver más</span></a>
+            </div>
+        </div>
+    <?php
 
     }
 
 
     public function update($new_instance, $old_instance)
     {
-        # code...
+        $instance = $old_instance;
+        $instance['title'] = strip_tags($new_instance['title']);
+        $instance['content'] = strip_tags($new_instance['content']);
+        $instance['image_uri'] = strip_tags($new_instance['image_uri']);
+        $instance['link'] = strip_tags($new_instance['link']);
+
+        return $instance;
+
     }
 
     public function form($instance)
@@ -42,7 +50,7 @@ class jl_service_block_widget extends WP_Widget
 		</p>
         <p>
 		    <label for="<?php echo esc_attr( $this->get_field_id( 'content' ) ); ?>"><?php esc_attr_e( 'Contenido:', 'oikos' ); ?></label> 
-		    <textarea class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'content' ) ); ?>" name="<?php echo $this->get_field_name( 'content' )  ?>"><?php echo esc_attr( $content ); ?></textarea>
+		    <textarea class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'content' ) ); ?>" name="<?php echo $this->get_field_name( 'content' )  ?>"><?php echo  $content ; ?></textarea>
 		</p>
         
         <p>
@@ -51,11 +59,9 @@ class jl_service_block_widget extends WP_Widget
 		</p>
         
       
-        <p>
-            <label for="<?php $this->get_field_id( 'image_uri' ); ?>">Image</label>
-            <img class="<?php $this->id ?>_img" src="<?php (!empty($instance['image_uri'])) ? $instance['image_uri'] : ''; ?>" style="margin:0;padding:0;max-width:100%;display:block"/>
-            <input type="text" class="widefat <?php $this->id ?>_url" name="<?php $this->get_field_name( 'image_uri' ); ?>" value="<?php $img; ?>" style="margin-top:5px;" />
-            <input type="button" id="<?php $this->id ?>" class="button button-primary js_custom_upload_media" value="Upload Image" style="margin-top:5px;" />
+        <p class="smartcat-uploader">
+            <label for="<?php $this->get_field_id( 'image_uri' ); ?>">Imagen:</label>
+            <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'image_uri' ) ); ?>" name="<?php echo $this->get_field_name( 'image_uri' ); ?>" type="text"  value="<?php echo esc_attr($img)  ?>"/>
         </p>
 
     <?php
@@ -74,6 +80,7 @@ if (! function_exists('jl_widget_oikos_script')) {
     function jl_widget_oikos_script() {
         wp_enqueue_media();
         wp_enqueue_script('media-upload-js',get_template_directory_uri().'/assets/js/media-upload.js',array('jquery'),'1.0',true);
+        wp_enqueue_script('script-media-upload',get_template_directory_uri().'/assets/js/script-media-upload.js',array('jquery'),'1.0',true);
     }
 
     add_action('admin_enqueue_scripts','jl_widget_oikos_script');

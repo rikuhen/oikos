@@ -12,17 +12,24 @@
         <?php if(is_front_page( ) || is_page()): ?>
             <!-- titulo -->
             <div class="row mb-5">
-                    <?php if(! is_front_page( )): ?>
-                        <div class="col-12">
-                            <h1 class="title-page gray-text"><?php the_title( ) ?></h1>
-                        </div>
-                    <?php endif; ?>
-                    <!-- contenido -->
-                    <?php while (have_posts()) : the_post(); ?>
-                        <?php the_content(); 
-                        endwhile; 
-                    ?> 
-                </div>
+                <?php if(! is_front_page( )): ?>
+                    <div class="col-12">
+                        <h1 class="title-page gray-text"><?php the_title( ) ?></h1>
+                    </div>
+                <?php endif; ?>
+                
+                
+                <!-- widget Services -->
+                <?php if(is_front_page()) : ?>
+                    <?php get_template_part('template-parts/content/widget','home') ?>
+                <?php endif; ?>
+                
+                <!-- contenido -->
+                <?php while (have_posts()) : the_post(); ?>
+                    <?php the_content(); 
+                    endwhile; 
+                ?> 
+            </div>
 
         <?php elseif(have_posts()): ?> 
             <div class="row">
