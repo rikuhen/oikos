@@ -32,6 +32,12 @@ if (!function_exists('register_jl_cdatos_plugins')) {
 	            'slug' => 'classic-editor',
 	            'required' => true,
 			),
+			
+			array(
+				'name' => 'Photo Gallery by 10Web – Mobile-Friendly Image Gallery',
+            	'slug' => 'photo-gallery',
+	            'required' => true,
+			),
 		];
 
 		$config = array(

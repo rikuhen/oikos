@@ -107,6 +107,15 @@ if (! function_exists('oikos_widgets_init')) {
             'description'   => __( 'Agrega widget para el home.', 'oikos' )
         ) );
         
+        
+        register_sidebar( array(
+            'name'          => __( 'Gallery Content', 'oikos' ),
+            'id'            => 'gallery-content',
+            'before_widget' => '<div>',
+		    'after_widget'  => '</div>',
+            'description'   => __( 'Agrega widget para la galeria.', 'oikos' )
+        ) );
+        
         register_sidebar( array(
             'name'          => __( 'Page Footer Sidebar 1', 'oikos' ),
             'id'            => 'sidebar-footer-1',

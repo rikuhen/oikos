@@ -114,7 +114,7 @@ a:hover {
     content        : '';
     display        : block;
     width          : 100%;
-    background     : url(/assets/images/separator.png) no-repeat center;
+    background     : url(assets/images/separator.png) no-repeat center;
     background-size: contain;
 }
 
@@ -179,7 +179,7 @@ h3.header-latest-post {
 .item-detail-header {
     content            : '';
     height             : 50px;
-    background         : url(/assets/images/item-header.png) no-repeat;
+    background         : url(assets/images/item-header.png) no-repeat;
     background-position: left center;
     background-size    : contain;
     color              : #ffffff;
@@ -211,7 +211,7 @@ h3.header-latest-post {
     contact
 */
 .form-contact-container {
-    background-color: var(--purble)
+    background-color: #f2f2f2
 }
 
 .btn-enviar {
@@ -242,7 +242,7 @@ h3.header-latest-post {
 
 .cover-gallery a:hover h3.header-latest-post {
     background: #feee00;
-    color     : var(--gray);
+    color     : #551976
 
 }
 
@@ -252,7 +252,7 @@ h3.header-latest-post {
 .gallery-photo-carrousel img {
     width       : 200px;
     margin-right: 10px;
-    border      : 1px solid var(--gray);
+    border      : 1px solid #551976;
 }
 
 .slick-dots {
@@ -261,7 +261,7 @@ h3.header-latest-post {
 
 .slick-prev:before,
 .slick-next:before {
-    color     : var(--gray);
+    color     : #551976;
     transition: ease .5s;
 }
 
@@ -269,5 +269,5 @@ h3.header-latest-post {
 .slick-prev:focus:before,
 .slick-next:hover:before,
 .slick-next:focus:before {
-    color: var(--yellow);
+    color: #feee00;
 }

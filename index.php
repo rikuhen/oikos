@@ -24,6 +24,13 @@
                     <?php get_template_part('template-parts/content/widget','home') ?>
                 <?php endif; ?>
                 
+                
+                <!-- widget Gallery -->
+                
+                <?php if(!is_front_page() && get_the_title() == 'Galería') : ?>
+                    <?php get_template_part('template-parts/content/widget','gallery') ?>
+                <?php endif; ?>
+                
                 <!-- contenido -->
                 <?php while (have_posts()) : the_post(); ?>
                     <?php the_content(); 
