@@ -121,7 +121,7 @@ a:hover {
 
 .view-more span {
     position     : absolute;
-    bottom       : 79px;
+    bottom       : 39px;
     left         : 35%;
     padding      : 1px 15px;
     background   : #551976;
@@ -138,7 +138,12 @@ a:hover {
 }
 
 .latest-post p {
-    font-size: 11pt;
+    font-size: 15px;
+}
+
+.header-title {
+    height        : 65px;
+    line-height   : 65px;
 }
 
 h3.header-latest-post {
@@ -149,6 +154,10 @@ h3.header-latest-post {
     text-align    : center;
     font-weight   : normal;
     text-transform: uppercase;
+    display: inline-block;
+    vertical-align: middle;
+    width         : 100%;
+   
 }
 
 .sub-alert {

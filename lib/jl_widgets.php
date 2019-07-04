@@ -13,7 +13,9 @@ class jl_service_block_widget extends WP_Widget
     {
     ?>
         <div class="col-lg-3 col-sm-6 col-12 latest-post mb-4 mb-lg-0">
-            <h3 class="header-latest-post mb-2 mx-4 p-2"><?php echo strtoupper($instance['title']); ?></h3>
+            <div class="header-title mb-4">
+                <h3 class="header-latest-post mb-2 p-2"><?php echo strtoupper($instance['title']); ?></h3>
+            </div>
             <p><?php echo $instance['content']; ?></p>    
             <div class="post-thumb-container position-relative d-flex justify-content-sm-center">
                 <a class="view-more" href="<?php echo $instance['link'] ?>"><img src="<?php echo $instance['image_uri'] ?>" class="img-fluid "> <span>Ver más</span></a>
