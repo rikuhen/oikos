@@ -100,11 +100,20 @@ if (! function_exists('oikos_widgets_init')) {
         
         
         register_sidebar( array(
+            'name'          => __( 'Home Introduction', 'oikos' ),
+            'id'            => 'home-introduction',
+            'before_widget' => '<div>',
+		    'after_widget'  => '</div>',
+            'description'   => __( 'Primera Area widget para el home.', 'oikos' )
+        ) );
+        
+        
+        register_sidebar( array(
             'name'          => __( 'Home Content', 'oikos' ),
             'id'            => 'home-content',
             'before_widget' => '<div>',
 		    'after_widget'  => '</div>',
-            'description'   => __( 'Agrega widget para el home.', 'oikos' )
+            'description'   => __( 'Segunda Area widget para el home.', 'oikos' )
         ) );
         
         
