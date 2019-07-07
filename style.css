@@ -95,9 +95,14 @@ a:hover {
     color     : #551976 !important;
 }
 
+
 #header li.dropdown .dropdown-menu {
     border    : 1px solid #551976;
     transition: ease 1.5s;
+}
+
+#header li.dropdown .dropdown-menu li {
+    margin: 0px;
 }
 
 #header li.dropdown .dropdown-menu a {
