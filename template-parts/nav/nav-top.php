@@ -9,7 +9,8 @@
                 'menu_class' => 'navbar-nav mr-auto mt-2 mt-lg-0',
                 'menu_id'        => 'top-menu',
                 'container_id' => 'navbarTogglerDemo01',
-                'container_class' => 'collapse navbar-collapse'
+                'container_class' => 'collapse navbar-collapse',
+                'walker' => new bootstrap_4_walker_nav_menu(),
             ) ); 
         ?>
     </nav>

@@ -1,7 +1,12 @@
 <?php
 
+//menu
+require_once 'lib/bootstrap_4_walker_nav_menu.php';
+
 //required plugins
 include_once 'lib/jl_require_plugins.php';
+
+//widgets
 include_once 'lib/jl_widgets.php';
 
 

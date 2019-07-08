@@ -86,7 +86,7 @@ class jl_gallery_block_widget extends WP_Widget
             <div class="post-thumb-container position-relative d-flex justify-content-sm-center">
                 <a class="view-more" href="<?php echo $instance['link'] ?>"><img src="<?php echo $instance['image_uri'] ?>" class="img-fluid "></a>
             </div>
-            <a href="<?php echo $instance['link'] ?>"><h3 class="header-latest-post mt-2 mb-2 mx-4 p-2"> <?php echo $instance['title'] ?></h3></a>
+            <a href="<?php echo $instance['link'] ?>"><h3 class="header-latest-post mt-2 mb-2 p-2"> <?php echo $instance['title'] ?></h3></a>
         </div>
     <?php
 
