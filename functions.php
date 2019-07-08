@@ -81,9 +81,10 @@ if(! function_exists('oikos_scripts') ) {
         wp_enqueue_style('style',get_stylesheet_uri(), array('bootstrap-css'), '1.0');
 
         //scripts
-        wp_enqueue_script('jquery');
+        wp_enqueue_script('jquery','','','',true);
         wp_enqueue_script('popper',get_template_directory_uri().'/assets/js/popper.js',array('jquery'),'1.0',true);
         wp_enqueue_script('bootstrap-js',get_template_directory_uri().'/assets/js/bootstrap.min.js',array('popper'),'1.0',true);
+        wp_enqueue_script('app',get_template_directory_uri().'/assets/js/app.js',array('jquery'),'1.0',true);
         
         
     }

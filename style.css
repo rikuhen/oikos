@@ -101,6 +101,10 @@ a:hover {
     transition: ease 1.5s;
 }
 
+.dropdown:hover>.dropdown-menu {
+    display: block;
+}
+
 #header li.dropdown .dropdown-menu li {
     margin: 0px;
 }
